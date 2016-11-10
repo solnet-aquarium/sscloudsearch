@@ -115,6 +115,14 @@ class Page_Controller extends ContentController {
     }
 }
 ```
+## Time Syncing ##
+
+A common issue when developing on your local machine is that the time on your local machine
+will be skewed from the time on the CloudSearch server.
+To get around this issue it is recommended to update the time on your machine from a NTP server.
+The following command can be used on Linux based systems
+
+**sudo ntpdate ntp.ubuntu.com**
 
 ## TODO ##
 
