@@ -31,7 +31,17 @@ class CloudSearchConfigStore implements SolrConfigStore
         $fieldTypes = array(
             'Varchar' => 'text',
             'Int' => 'int',
-            'Datetime' => 'date'
+            'SS_Datetime' => 'date',
+            'Date' => 'date',
+            'Boolean' => 'int',
+            'Currency' => 'double',
+            'Decimal' => 'double',
+            'Enum' => 'text',
+            'HTMLText' => 'text',
+            'HTMLVarchar' => 'text',
+            'Percentage' => 'double',
+            'Text' => 'text',
+            'Time' => 'date'
         );
         $processedIndexes = 0;
         foreach ($indexFields as $indexField) {
