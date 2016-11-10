@@ -1,0 +1,21 @@
+{
+	"name": "solnet-aquarium/sscloudsearch",
+	"description": "Adding AWS CloudSearch functionality to SilverStripe",
+    "type": "silverstripe-module",
+    "keywords": ["silverstripe", "AWS", "CloudSearch", "fulltext", "search"],
+    "authors": [
+        {
+            "name": "Kirk Mayo",
+            "email": "kirk.mayo@solnet.co.nz"
+        }
+    ],
+	"require": {
+		"php": ">=5.3.3",
+		"silverstripe/cms": "^3.4.1",
+		"silverstripe/framework": "^3.4.1",
+		"silverstripe/fulltextsearch": "^2.2",
+		"aws/aws-sdk-php": "^3.19"
+	},
+	"minimum-stability": "dev",
+	"license": "BSD-3-Clause"
+}
