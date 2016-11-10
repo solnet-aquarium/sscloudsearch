@@ -35,7 +35,7 @@ proof of concept.
 
 ## Features
 
-* Use AWS CloudSearch instead of Solr for you search needs
+* Use AWS CloudSearch instead of Solr for your search needs
 
 ## Composer Installation
 
@@ -53,16 +53,17 @@ proof of concept.
 
 You will need to understand the basics of CloudSearch and will need a domain 
 setup under CloudSearch.
+
 This will involve setting up relevant access policies under CloudSearch and if you 
 want to develop locally you will need to setup a local AWS credentials file on
 your machine.
 
 You will need to setup the relevant info to access CloudSearch as below which is
 similar to how you would configure Solr.
-It is importnant to set the mode to CloudSearchConfigStore so you can call the 
+It is important to set the mode to CloudSearchConfigStore so you can call the 
 Solr_Configure dev task to setup the indexes.
 
-'''
+```
 Solr::configure_server(array(
     'host' => 'YOURCLOUDSEARCHHOST.cloudsearch.amazonaws.com',
     'indexstore' => array(
@@ -84,13 +85,13 @@ Solr::configure_server(array(
     )
 ));
 FulltextSearchable::enable();
-'''
+```
 
 To setup the search index for CloudSearch you can follow the instructions from the
 [fulltextsearch module ](https://github.com/silverstripe/silverstripe-fulltextsearch/blob/master/docs/en/index.md) on creating indexes.
 
 This module has it's own Reindex dev task called CloudSearchReindex which will
-load documents into cloudSearch and then index the documents. 
+load documents into CloudSearch and then index the documents. 
 Once the module in installed and the Index has been setup you have setup the 
 relevant AWS Identity and Access Management (or AWS credentials) you will
 need to run the dev tasks Solr_Configure and CloudSearchReindex.
