@@ -92,6 +92,7 @@ To setup the search index for CloudSearch you can follow the instructions from t
 
 This module has it's own Reindex dev task called CloudSearchReindex which will
 load documents into CloudSearch and then index the documents. 
+
 Once the module in installed and the Index has been setup you have setup the 
 relevant AWS Identity and Access Management (or AWS credentials) you will
 need to run the dev tasks Solr_Configure and CloudSearchReindex.
@@ -115,10 +116,37 @@ class Page_Controller extends ContentController {
     }
 }
 ```
+
+## Suggesters and Fuzzy matching ##
+
+To setup suggesters (including sorting) or fuzzy matching you need to specify this
+via the $extraOptions parameter on the addFulltextField method which is used when you are
+creating your search index.
+
+As per the example below where the array $suggester is used which is an array with a element
+called suggesters which contains a list of suggestors to be setup.
+
+```
+<?php
+class TestSearchIndex extends SolrIndex {
+    function init() {
+        $suggester['suggesters'][] = array(
+            'FuzzyMatching' => 'high',
+            'SortExpression' => '_time'
+        );
+        $this->addClass('SiteTree');
+        $this->addFulltextField('Title',null, $suggestor);
+        $this->addFulltextField('Content');
+        $this->addFulltextField('MenuTitle');
+    }
+}
+```
+
 ## Time Syncing ##
 
 A common issue when developing on your local machine is that the time on your local machine
 will be skewed from the time on the CloudSearch server.
+
 To get around this issue it is recommended to update the time on your machine from a NTP server.
 The following command can be used on Linux based systems
 
